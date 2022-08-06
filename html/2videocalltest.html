@@ -34,73 +34,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css"/>
 
-<script type="text/babel">
-
-
-const {
-        SvgIcon,
-		TextField,
-		Button 
-      } = MaterialUI;
-
-// const {
-// 	createSlice,
-// 	createStore,
-// 	configureStore
-// } = window.RTK;
-
-function StartCallButton() {
-
-	const render = ()=>{
-		console.log('----------------------------',store.getState().toString())
-	}
-	store.subscribe(render)
-	// const value = 
-
-    return (
-		<div>
-			<Button variant="contained">Start Call</Button>          
-		</div>
-	) 
-  }
-
-  function UserNameText(){
-	return(
-		<div>
-			<TextField 
-				id="username" 
-				label="User Name" 
-				variant="outlined" 
-				onKeyDown={
-					event=>{
-					// return
-					if(event.keyCode == 13){
-						// console.log(event.currentTarget,event)
-						customRegisterUsername(event.target.value)
-					// 	// checkEnter(this, event);
-					}
-				}}
-			/>
-		</div>
-	)
-
-  }
-
-
-  const startButtonContainer = document.getElementById('start');
-//   const container = document.getElementById('root');
-  let root = ReactDOM.createRoot(startButtonContainer);
-  root.render(<StartCallButton />);
-
-  root = ReactDOM.createRoot(document.getElementById('usernameDiv'));
-  root.render(<UserNameText />);
-
-
-
-
-
-</script>
-
 
 </head>
 <body>
@@ -109,7 +42,6 @@ function StartCallButton() {
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-					<!-- <button class="btn btn-default" autocomplete="off" id="start">Start</button> -->
 					<div id = "start"></div>
 			</div>
 			<div class="container hide" id="videocall">
@@ -123,6 +55,8 @@ function StartCallButton() {
 							</div>
 							<button class="btn btn-success margin-bottom-sm" autocomplete="off" id="register">Register</button> <span class="hide label label-info" id="youok"></span>
 						</div>
+						<div id="registerComponent"> </div>
+
 						<div class="col-md-6 container hide" id="phone">
 							<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon"><i class="fa fa-phone fa-fw"></i></span>
@@ -186,5 +120,11 @@ function StartCallButton() {
 	</div>
 </div>
 
+
+<script type="text/babel" src="./react-files/temp.js" ></script>
+<script type="text/babel" src="./react-files/reactFiles.js"> </script>
+
 </body>
+
+	
 </html>

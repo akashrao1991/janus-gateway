@@ -15,7 +15,8 @@ function counter(state, action) {
   }
 
 
-const store = Redux.createStore(counter)
+ const store = Redux.createStore(counter)
+// exports.store=store
 
 
 

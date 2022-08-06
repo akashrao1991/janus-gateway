@@ -58,6 +58,8 @@ const store2 =  configureStore({
     }
   })
 
+  // exports.store2=store2
+
 // const store2 = createS
 
   
