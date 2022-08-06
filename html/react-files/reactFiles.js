@@ -8,20 +8,6 @@ const {
 
 // import {f} from './temp.js'
 
-function StartCallButton() {
-
-const render = ()=>{
-    console.log('----------------------------',store.getState().toString())
-}
-store2.subscribe(render)
-// const value = 
-
-return (
-    <div >
-        <Button variant="contained" >Start Call</Button>          
-    </div>
-) 
-}
 
 function UserNameText(){
 return(
