@@ -51,9 +51,13 @@
 //
 var server = null;
 if(window.location.protocol === 'http:')
-	server = "http://" + window.location.hostname + ":8088/janus";
+	server = "http://localhost:8088/janus";
 else
-	server = "https://" + window.location.hostname + ":8089/janus";
+	server = "https://localhost:8089/janus";
+// if(window.location.protocol === 'http:')
+// 	server = "http://" + window.location.hostname + ":8088/janus";
+// else
+// 	server = "https://" + window.location.hostname + ":8089/janus";
 
 // When creating a Janus object, we can also specify which STUN/TURN
 // servers we'd like to use to gather additional candidates. This is

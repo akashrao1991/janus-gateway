@@ -133,6 +133,7 @@ gchar *janus_dtls_get_local_fingerprint(void) {
 
 
 #if JANUS_USE_OPENSSL_PRE_1_1_API && !defined(HAVE_BORINGSSL)
+SSL_CTX_set_read_ahead(ssl_ctx,1) ;
 /*
  * DTLS locking stuff to make OpenSSL thread safe (not needed for 1.1.0)
  *
