@@ -17,8 +17,8 @@ store2.subscribe(render)
 // const value = 
 
 return (
-    <div>
-        <Button variant="contained">Start Call</Button>          
+    <div >
+        <Button variant="contained" >Start Call</Button>          
     </div>
 ) 
 }
@@ -45,23 +45,25 @@ return(
 
 }
 
+
 function Register(){
-return(
-
-    <div class="col-md-6 container hide" id="login">
-                        <div class="input-group margin-bottom-sm">
-                            <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
-
-                            <div id = "usernameDiv"></div>
-                        </div>
-                        <button class="btn btn-success margin-bottom-sm" autocomplete="off" id="register">Register</button> <span class="hide label label-info" id="youok"></span>
-                    </div>
-
-
-)
+    return(
+        <div>
+            <Button 
+                variant="contained" 
+                onClick={() => {
+                    // alert('clicked');
+                    const username = $('#username').val();
+                    customRegisterUsername(username)
+                }}
+            >
+                Register
+            </Button>          
+        </div>
+    )
 }
 
-
+// let root=null
 const startButtonContainer = document.getElementById('start');
 //   const container = document.getElementById('root');
 let root = ReactDOM.createRoot(startButtonContainer);
@@ -70,7 +72,11 @@ root.render(<StartCallButton />);
 root = ReactDOM.createRoot(document.getElementById('usernameDiv'));
 root.render(<UserNameText />);
 
-f()
+root = ReactDOM.createRoot(document.getElementById('register'));
+root.render(<Register />);
+
+
+// f()
 
 
 //   root = ReactDOM.createRoot(document.getElementById('registerComponent'));

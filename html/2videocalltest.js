@@ -62,7 +62,7 @@ $(document).ready(function() {
 										.click(function() {
 											$(this).attr('disabled', true);
 											// store.dispatch({type:'INCREMENT'})
-											store2.dispatch(increment())
+											// store2.dispatch(increment())
 											janus.destroy();
 										});
 								},
