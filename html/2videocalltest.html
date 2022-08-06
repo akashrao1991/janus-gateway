@@ -15,8 +15,11 @@
 
 <script type="text/javascript" src="https://unpkg.com/rxjs@7.5.6/dist/bundles/rxjs.umd.min.js"></script>
 <script type="text/javascript" src="https://unpkg.com/redux@4.2.0/dist/redux.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/@reduxjs/toolkit@1.8.3/dist/redux-toolkit.umd.js"></script>
 
 <script type="text/javascript" src="settings.js" ></script>
+<script type="text/javascript" src="store.js" ></script>
+<script type="text/javascript" src="store2.js" ></script>
 <script type="text/javascript" src="janus.js" ></script>
 <script type="text/javascript" src="2videocalltest.js"></script>
 
@@ -40,8 +43,19 @@ const {
 		Button 
       } = MaterialUI;
 
+// const {
+// 	createSlice,
+// 	createStore,
+// 	configureStore
+// } = window.RTK;
 
 function StartCallButton() {
+
+	const render = ()=>{
+		console.log('----------------------------',store.getState().toString())
+	}
+	store.subscribe(render)
+	// const value = 
 
     return (
 		<div>
@@ -72,6 +86,7 @@ function StartCallButton() {
 
   }
 
+
   const startButtonContainer = document.getElementById('start');
 //   const container = document.getElementById('root');
   let root = ReactDOM.createRoot(startButtonContainer);
@@ -79,6 +94,7 @@ function StartCallButton() {
 
   root = ReactDOM.createRoot(document.getElementById('usernameDiv'));
   root.render(<UserNameText />);
+
 
 
 
@@ -104,9 +120,6 @@ function StartCallButton() {
 								<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
 
 								<div id = "usernameDiv"></div>
-								<!-- <input class="form-control" type="text" placeholder="Choose a username" autocomplete="off" id="username" onkeypress="return checkEnter(this, event);" /> -->
-
-								<!-- <input class="form-control" type="text" placeholder="Choose a username" autocomplete="off" id="username" onkeypress="return checkEnter(this, event);" /> -->
 							</div>
 							<button class="btn btn-success margin-bottom-sm" autocomplete="off" id="register">Register</button> <span class="hide label label-info" id="youok"></span>
 						</div>
@@ -118,7 +131,7 @@ function StartCallButton() {
 							<button class="btn btn-success margin-bottom-sm" autocomplete="off" id="call">Call</button>
 						</div>
 					</div>
-				<div/>
+				</div>
 				<div id="videos" class="hide">
 					<div class="col-md-6">
 						<div class="panel panel-default">

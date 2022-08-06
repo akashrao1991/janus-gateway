@@ -3,6 +3,7 @@
 // used as well. Specifically, that file defines the "server" and
 // "iceServers" properties we'll pass when creating the Janus session.
 
+// const store2 = require('./store2')
 var janus = null;
 var videocall = null;
 var opaqueId = "videocalltest-"+Janus.randomString(12);
@@ -60,6 +61,8 @@ $(document).ready(function() {
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
+											store.dispatch({type:'INCREMENT'})
+											store2.dispatch(increment())
 											janus.destroy();
 										});
 								},
