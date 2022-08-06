@@ -14,7 +14,7 @@ function StartCallButton() {
 
     const buttonClickHandler = useCallback(() => {
 
-        $(this).attr('disabled', true).unbind('click');
+        // $(this).attr('disabled', true).unbind('click');
             // Make sure the browser supports WebRTC
             if(!Janus.isWebrtcSupported()) {
                 bootbox.alert("No WebRTC support... ");
@@ -526,7 +526,6 @@ function StartCallButton() {
             // Use a button to start the demo
             setDisabled(false)
         }});
-    
     },[])
 
 
