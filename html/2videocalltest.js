@@ -546,6 +546,13 @@ function checkEnter(field, event) {
 	}
 }
 
+function customRegisterUsername(username){
+
+	var register = { request: "register", username: username };
+	videocall.send({ message: register });
+
+	
+}
 function registerUsername() {
 	// Try a registration
 	$('#username').attr('disabled', true);
