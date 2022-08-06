@@ -41,6 +41,7 @@
 
 const {
         SvgIcon,
+		Button 
       } = MaterialUI;
 
 
@@ -56,11 +57,7 @@ function MyApp() {
     const {useState} = React;
     const [state,setState] = useState(0)
     return <div>
-      <h1>Hello, world!</h1>
-      <h2>This is react from script tag {state}</h2>
-      <LightBulbIcon />
-          
-          
+		<Button variant="contained">Contained</Button>          
           </div> 
   }
 
@@ -89,7 +86,8 @@ function MyApp() {
 		<div class="col-md-12">
 			<div class="page-header">
 				<h1>Plugin Demo: Video Call
-					<button class="btn btn-default" autocomplete="off" id="start">Start</button>
+					<!-- <button class="btn btn-default" autocomplete="off" id="start">Start</button> -->
+					<div id = "start"></div>
 				</h1>
 			</div>
 			<div class="container" id="details">
@@ -125,8 +123,8 @@ function MyApp() {
 						just use the text area under your local video to send messages
 						to your peer. Incoming messages will be displayed below the
 						remote video instead.</p>
-						<!-- <p>Press the <code>Start</code> button above to launch the demo.</p> -->
-						<p>Press the <div id="start" >Start</div> button above to launch the demo.</p>
+						<p>Press the <code>Start</code> button above to launch the demo.</p>
+						<!-- <p>Press the <div id="start" >Start</div> button above to launch the demo.</p> -->
 					</div>
 				</div>
 			</div>
