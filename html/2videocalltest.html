@@ -15,6 +15,13 @@
 <script type="text/javascript" src="settings.js" ></script>
 <script type="text/javascript" src="janus.js" ></script>
 <script type="text/javascript" src="2videocalltest.js"></script>
+
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script src="https://unpkg.com/@mui/material@latest/umd/material-ui.development.js" crossorigin="anonymous" ></script>
+
+
 <script>
 	$(function() {
 		$(".navbar-static-top").load("navbar.html", function() {
@@ -28,6 +35,47 @@
 <link rel="stylesheet" href="css/demo.css" type="text/css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css"/>
+
+<script type="text/babel">
+
+
+const {
+        SvgIcon,
+      } = MaterialUI;
+
+
+
+function LightBulbIcon(props) {
+        return (
+          <SvgIcon {...props}>
+            <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z" />
+          </SvgIcon>
+        );
+      }
+function MyApp() {
+    const {useState} = React;
+    const [state,setState] = useState(0)
+    return <div>
+      <h1>Hello, world!</h1>
+      <h2>This is react from script tag {state}</h2>
+      <LightBulbIcon />
+          
+          
+          </div> 
+  }
+
+
+
+  const container = document.getElementById('start');
+//   const container = document.getElementById('root');
+  const root = ReactDOM.createRoot(container);
+  root.render(<MyApp />);
+
+
+
+</script>
+
+
 </head>
 <body>
 
@@ -77,7 +125,8 @@
 						just use the text area under your local video to send messages
 						to your peer. Incoming messages will be displayed below the
 						remote video instead.</p>
-						<p>Press the <code>Start</code> button above to launch the demo.</p>
+						<!-- <p>Press the <code>Start</code> button above to launch the demo.</p> -->
+						<p>Press the <div id="start" >Start</div> button above to launch the demo.</p>
 					</div>
 				</div>
 			</div>
