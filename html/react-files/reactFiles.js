@@ -27,11 +27,11 @@ const startButtonContainer = document.getElementById('start');
 let root = ReactDOM.createRoot(startButtonContainer);
 root.render(<StartCallButton />);
 
-root = ReactDOM.createRoot(document.getElementById('usernameDiv'));
-root.render(<UserNameText />);
+// root = ReactDOM.createRoot(document.getElementById('usernameDiv'));
+// root.render(<UserNameText />);
 
-root = ReactDOM.createRoot(document.getElementById('register'));
-root.render(<RegisterButton />);
+// root = ReactDOM.createRoot(document.getElementById('register'));
+// root.render(<RegisterButton />);
 
 // root = ReactDOM.createRoot(document.getElementById('phone'));
 // root.render(<Phone />);
@@ -41,7 +41,7 @@ root.render(<RegisterButton />);
 // f()
 
 
-//   root = ReactDOM.createRoot(document.getElementById('registerComponent'));
-//   root.render(<Register />);
+  root = ReactDOM.createRoot(document.getElementById('registerComponent'));
+  root.render(<Register />);
 
 
