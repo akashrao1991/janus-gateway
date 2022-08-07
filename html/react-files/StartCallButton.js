@@ -532,6 +532,18 @@ function StartCallButton() {
     
     return (
         <div >
+        <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            style={{ 
+                width:'100vw',
+                height:'100vh',
+            }}
+            >
+
             <Button 
                 variant="contained" 
                 onClick={buttonClickHandler}
@@ -539,6 +551,7 @@ function StartCallButton() {
             >
                 Start Call
             </Button>          
+            </Grid>
         </div>
     ) 
     }
