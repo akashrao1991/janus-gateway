@@ -1,5 +1,6 @@
 // import { createSlice } from '@reduxjs/toolkit'
 const {
+  getDefaultMiddleware,
 	createSlice,
 	createStore,
 	configureStore
@@ -51,11 +52,54 @@ const selectCount = (state) => state.counter.value
 
 // export default counterSlice.reducer
 
+const streamsSlice = createSlice({
+  name: 'streams',
+  initialState: {
+    localStream: undefined,
+    remoteStreams:[],
+  },
+  reducers: {
+    setLocalStream:(state,action)=>{
+      state.localStream=action.payload
+      console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@',state.localStream)
+    },
+    removeLocalStream:(state)=>{
+      state.localStream=null
+    },
+    setRemoteStream:(state,action)=>{
+      state.remoteStreams.push(action.payload)
+      console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^',state.remoteStreams)
+    },
+    removeRemoteStream:(state,action)=>{
+      const stream = action.payload
+      state.remoteStreams=Arrays.from(state.remoteStreams.filter((element)=>element.id !=stream.id))
+    },
+
+
+
+  },
+
+})
+
+const { 
+  setLocalStream,
+  removeLocalStream,
+
+  setRemoteStream,
+  removeRemoteStream
+
+} = streamsSlice.actions
+
+
+
+
 
 const store2 =  configureStore({
     reducer: {
-      counter: counterSlice.reducer
-    }
+      counter: counterSlice.reducer,
+      streams:streamsSlice.reducer,
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({serializableCheck: false})
   })
 
   // exports.store2=store2

@@ -281,6 +281,7 @@ function StartCallButton() {
                                     if(!on) {
                                         // Track removed, get rid of the stream and the rendering
                                         var stream = localTracks[trackId];
+
                                         if(stream) {
                                             try {
                                                 var tracks = stream.getTracks();
@@ -334,6 +335,7 @@ function StartCallButton() {
                                         localVideos++;
                                         $('#videoleft .no-video-container').remove();
                                         stream = new MediaStream([track]);
+                                        store2.dispatch(setLocalStream(stream))
                                         localTracks[trackId] = stream;
                                         Janus.log("Created local stream:", stream);
                                         $('#videoleft').append('<video class="rounded centered" id="myvideo' + trackId + '" width="100%" height="100%" autoplay playsinline muted="muted"/>');
@@ -411,10 +413,12 @@ function StartCallButton() {
                                         remoteVideos++;
                                         $('#videoright .no-video-container').remove();
                                         stream = new MediaStream([track]);
+                                        store2.dispatch(setRemoteStream(stream))
                                         remoteTracks[mid] = stream;
                                         Janus.log("Created remote video stream:", stream);
                                         $('#videoright').append('<video class="rounded centered" id="peervideo' + mid + '" width="100%" height="100%" autoplay playsinline/>');
                                         Janus.attachMediaStream($('#peervideo' + mid).get(0), stream);
+
                                         // Note: we'll need this for additional videos too
                                         if(!bitrateTimer) {
                                             $('#curbitrate').removeClass('hide').show();
