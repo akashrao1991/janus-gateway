@@ -11,6 +11,7 @@ function StartCallButton() {
     // store2.subscribe(render2)
 
     const [disabled,setDisabled] = useState(true)
+    // const [loading,setLoading] = useState(false)
 
     const buttonClickHandler = useCallback(() => {
 
@@ -20,6 +21,8 @@ function StartCallButton() {
                 bootbox.alert("No WebRTC support... ");
                 return;
             }
+            setDisabled(true)
+            // setLoading(true)
             // Create session
             janus = new Janus(
                 {
@@ -525,6 +528,7 @@ function StartCallButton() {
         Janus.init({debug: true, callback: function() {
             // Use a button to start the demo
             setDisabled(false)
+            // setLoading(false)
         }});
     },[])
 
@@ -551,6 +555,8 @@ function StartCallButton() {
                 variant="contained" 
                 onClick={buttonClickHandler}
                 disabled={disabled}
+                // loading={loading.toString()}
+                loadingPosition="start"
             >
                 Start Call
             </Button>          
