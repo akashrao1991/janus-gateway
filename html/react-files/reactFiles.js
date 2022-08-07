@@ -17,22 +17,6 @@ const {
 
 
 
-function Register(){
-    return(
-        <div>
-            <Button 
-                variant="contained" 
-                onClick={() => {
-                    // alert('clicked');
-                    const username = $('#username').val();
-                    customRegisterUsername(username)
-                }}
-            >
-                Register
-            </Button>          
-        </div>
-    )
-}
 
 // let root=null
 const startButtonContainer = document.getElementById('start');
@@ -44,7 +28,7 @@ root = ReactDOM.createRoot(document.getElementById('usernameDiv'));
 root.render(<UserNameText />);
 
 root = ReactDOM.createRoot(document.getElementById('register'));
-root.render(<Register />);
+root.render(<RegisterButton />);
 
 
 // f()
