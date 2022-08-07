@@ -531,16 +531,19 @@ function StartCallButton() {
 
     
     return (
-        <div >
         <Grid
             container
             spacing={0}
             direction="column"
             alignItems="center"
             justifyContent="center"
-            style={{ 
-                width:'100vw',
-                height:'100vh',
+            sx={{
+                display:'grid',
+                // flex:1,
+                minWidth:'100%',
+                height:"100%",
+                // backgroundColor:'blue'
+
             }}
             >
 
@@ -552,7 +555,6 @@ function StartCallButton() {
                 Start Call
             </Button>          
             </Grid>
-        </div>
     ) 
     }
     

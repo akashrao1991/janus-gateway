@@ -14,6 +14,15 @@ function UserNameText(){
                     // 	// checkEnter(this, event);
                     }
                 }}
+                InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        {/* <AccountCircle /> */}
+                        <i className="fa fa-user fa-fw"></i> 
+
+                      </InputAdornment>
+                    ),
+                  }}
             />
         </div>
     )
