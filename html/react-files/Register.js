@@ -17,8 +17,10 @@ function RegisterButton(){
 
 
 function UserNameText(){
+    const [text,setText] = useState("")
     return(
         <div>
+            {/* {text} */}
             <TextField 
                 id="username" 
                 label="User Name" 
@@ -26,6 +28,7 @@ function UserNameText(){
                 onKeyDown={
                     event=>{
                     // return
+                    // setText(event.target.value)
                     if(event.keyCode == 13){
                         // console.log(event.currentTarget,event)
                         customRegisterUsername(event.target.value)

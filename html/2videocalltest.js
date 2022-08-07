@@ -63,6 +63,32 @@ function registerUsername() {
 	videocall.send({ message: register });
 }
 
+function customDoCall(username){
+
+		// Call this user
+		videocall.createOffer(
+			{
+				// We want bidirectional audio and video, plus data channels
+				tracks: [
+					{ type: 'audio', capture: true, recv: true },
+					{ type: 'video', capture: true, recv: true, simulcast: doSimulcast },
+					{ type: 'data' },
+				],
+				success: function(jsep) {
+					Janus.debug("Got SDP!", jsep);
+					var body = { request: "call", username:username};
+					videocall.send({ message: body, jsep: jsep });
+				},
+				error: function(error) {
+					Janus.error("WebRTC error...", error);
+					bootbox.alert("WebRTC error... " + error.message);
+				}
+			});
+	
+
+
+}
+
 function doCall() {
 	// Call someone
 	$('#peer').attr('disabled', true);
@@ -99,6 +125,7 @@ function doCall() {
 				bootbox.alert("WebRTC error... " + error.message);
 			}
 		});
+
 }
 
 function doHangup() {

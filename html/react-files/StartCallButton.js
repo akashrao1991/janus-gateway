@@ -556,7 +556,7 @@ function StartCallButton() {
                 onClick={buttonClickHandler}
                 disabled={disabled}
                 // loading={loading.toString()}
-                loadingPosition="start"
+                // loadingPosition="start"
             >
                 Start Call
             </Button>          
