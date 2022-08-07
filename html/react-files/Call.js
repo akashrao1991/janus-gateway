@@ -3,19 +3,18 @@ function Call() {
 
     const [localStream, setLocalStream] = useState(null)
     const [remoteStream, setRemoteStream] = useState(null)
-    const [remoteStreams, setRemoteStreams] = useState([])
+    const [remoteStreams, setRemoteStreams] = useState(null)
 
     const subscribeStore = () => {
         const streams = store2.getState().streams
-        const local = streams.localStream
-        const remotes = streams.remoteStreams
+
         // console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!',streams.localStream)
         // streams.localStream.getTracks()
         // const remoteStreamsMap = new Map()
-        setLocalStream(local)
+        setLocalStream(streams.localStream)
         // if(local && remotes.length){
         // const remote = remotes.filter(element => element.id!=local.id).pop();
-        setRemoteStreams(remotes)
+        setRemoteStream(streams.remoteStream)
         // console.log('*********************remotes',$('#username').val(),remotes)
         // console.log('*********************local',$('#username').val(),local)
         // }
@@ -26,13 +25,15 @@ function Call() {
         // Janus.attachMediaStream($("#localVideo1234").get(0), stream);
         // $("#localVideo1234").srcObject = stream;
 
-        const container = document.getElementById('local-video-container')
-        if (localStream) {
+        const container = document.getElementById('localVideo1234')
+        // if (localStream) {
             // const url = URL.createObjectURL(stream)
             // const url = 'https://www.youtube.com/watch?v=d46Azg3Pm4c'
 
             renderReactPlayer(container, { url: localStream, playing: true })
-        }
+            console.log('++++++++++++++++++++++++++++++',localStream)
+
+        // }
 
     }, [localStream])
 
@@ -40,25 +41,25 @@ function Call() {
         // Janus.attachMediaStream($("#localVideo1234").get(0), stream);
         // $("#localVideo1234").srcObject = stream;
 
-        // const container = document.getElementById('remote-video-container')
+        const container = document.getElementById('remote-video-container')
         // if(remoteStream){
         //     // const url = URL.createObjectURL(stream)
         //     // const url = 'https://www.youtube.com/watch?v=d46Azg3Pm4c'
 
-        //     renderReactPlayer(container, { url:remoteStream, playing: true })
+        renderReactPlayer(container, { url:remoteStream, playing: true })
         // }
         console.log('++++++++++++++++++++++++++++++',remoteStream)
 
     },[remoteStream])
 
-    useEffect(()=>{
-        const remote = remoteStreams[0]
-        if(remote){                
-            console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%',remote)
-            setRemoteStream(remote)
-            // setRemoteStream(remote.getVideoTracks().pop())
-        }
-    },[remoteStreams])
+    // useEffect(()=>{
+    //     const remote = remoteStreams[0]
+    //     if(remote){                
+    //         console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%',remote)
+    //         setRemoteStream(remote)
+    //         // setRemoteStream(remote.getVideoTracks().pop())
+    //     }
+    // },[remoteStreams])
 
 
     return (
@@ -76,7 +77,7 @@ function Call() {
             {/* <video width="750" height="500" controls >
                 <source src='https://www.youtube.com/watch?v=d46Azg3Pm4c' />
             </video> */}
-            <div id="local-video-container"></div>
+            <div id="localVideo1234"></div>
 
             <div class="input-group margin-bottom-sm">
                 <span class="input-group-addon"><i class="fa fa-phone fa-fw"></i></span>

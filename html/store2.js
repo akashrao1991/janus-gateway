@@ -56,7 +56,8 @@ const streamsSlice = createSlice({
   name: 'streams',
   initialState: {
     localStream: undefined,
-    remoteStreams:[],
+    remoteStream:undefined,
+    // remoteStreams:[],
   },
   reducers: {
     setLocalStream:(state,action)=>{
@@ -67,12 +68,13 @@ const streamsSlice = createSlice({
       state.localStream=null
     },
     setRemoteStream:(state,action)=>{
-      state.remoteStreams.push(action.payload)
-      console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^',state.remoteStreams)
+      state.remoteStream = action.payload
+      console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^',state.remoteStream)
     },
-    removeRemoteStream:(state,action)=>{
-      const stream = action.payload
-      state.remoteStreams=Arrays.from(state.remoteStreams.filter((element)=>element.id !=stream.id))
+    removeRemoteStream:(state)=>{
+      state.remoteStream=null
+      // const stream = action.payload
+      // state.remoteStreams=Arrays.from(state.remoteStreams.filter((element)=>element.id !=stream.id))
     },
 
 
