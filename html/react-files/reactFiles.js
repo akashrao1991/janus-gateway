@@ -45,4 +45,7 @@ root.render(<StartCallButton />);
   root = ReactDOM.createRoot(document.getElementById('registerComponent'));
   root.render(<Register />);
 
+  root = ReactDOM.createRoot(document.getElementById('callComponent'));
+  root.render(<Call />);
+
 
