@@ -21,7 +21,7 @@ var yourusername = null;
 
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var simulcastStarted = false;
-
+var incoming = null
 
 function checkEnter(field, event) {
 	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
