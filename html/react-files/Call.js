@@ -16,6 +16,8 @@ function Call() {
         // if(local && remotes.length){
         // const remote = remotes.filter(element => element.id!=local.id).pop();
         setRemoteStreams(remotes)
+        // console.log('*********************remotes',$('#username').val(),remotes)
+        // console.log('*********************local',$('#username').val(),local)
         // }
     }
     store2.subscribe(subscribeStore)
@@ -34,29 +36,29 @@ function Call() {
 
     }, [localStream])
 
-    // useEffect(()=>{
-    //     // Janus.attachMediaStream($("#localVideo1234").get(0), stream);
-    //     // $("#localVideo1234").srcObject = stream;
+    useEffect(()=>{
+        // Janus.attachMediaStream($("#localVideo1234").get(0), stream);
+        // $("#localVideo1234").srcObject = stream;
 
-    //     const container = document.getElementById('remote-video-container')
-    //     if(remoteStream){
-    //         // const url = URL.createObjectURL(stream)
-    //         // const url = 'https://www.youtube.com/watch?v=d46Azg3Pm4c'
+        // const container = document.getElementById('remote-video-container')
+        // if(remoteStream){
+        //     // const url = URL.createObjectURL(stream)
+        //     // const url = 'https://www.youtube.com/watch?v=d46Azg3Pm4c'
 
-    //         renderReactPlayer(container, { url:remoteStream, playing: true })
-    //     }
-    //     console.log('++++++++++++++++++++++++++++++',remoteStream)
+        //     renderReactPlayer(container, { url:remoteStream, playing: true })
+        // }
+        console.log('++++++++++++++++++++++++++++++',remoteStream)
 
-    // },[remoteStream])
+    },[remoteStream])
 
-    // useEffect(()=>{
-    //     let id=0
-    //     if(localStream){
-    //         id = localStream.id
-    //         const remote = remoteStreams.filter(stream=>stream.id!=id)[0]
-    //         setRemoteStream(remote)
-    //     }
-    // },[remoteStreams])
+    useEffect(()=>{
+        const remote = remoteStreams[0]
+        if(remote){                
+            console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%',remote)
+            setRemoteStream(remote)
+            // setRemoteStream(remote.getVideoTracks().pop())
+        }
+    },[remoteStreams])
 
 
     return (
